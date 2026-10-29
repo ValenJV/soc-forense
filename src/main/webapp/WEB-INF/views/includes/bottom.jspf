@@ -1,0 +1,15 @@
+</div>
+</main>
+
+<div class="busy" id="busy">
+    <div class="busy-box">
+        <div class="busy-ring"></div>
+        <strong id="busy-title">Procesando evidencia</strong>
+        <span id="busy-sub">Con un modelo local puede tardar un par de minutos. No cierre la pestaña.</span>
+    </div>
+</div>
+
+<script>window.SOC = { ctx: "${ctx}", csrf: "${csrf}" };</script>
+<script src="${ctx}/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/soc-forense">
+    <!-- Las sesiones no se guardan en disco al reiniciar Tomcat: tras cada redespliegue hay que volver a entrar. -->
+    <Manager pathname="" />
+    <!-- Cookie de sesion con SameSite=Lax (compatible con Tomcat y TomEE). -->
+    <CookieProcessor sameSiteCookies="lax" />
+</Context>

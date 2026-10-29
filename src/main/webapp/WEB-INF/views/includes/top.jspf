@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<%@ include file="/WEB-INF/views/includes/head.jspf" %>
+<title><c:out value="${pageTitle}" /> · SOC Forense</title>
+</head>
+<body>
+<%@ include file="/WEB-INF/views/includes/icons.jspf" %>
+<c:set var="u" value="${currentUser}" />
+
+<aside class="rail">
+    <a class="brand" href="${ctx}/tablero">
+        <span class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-mark"/></svg></span>
+        <span class="brand-name">SOC Forense<small>Respuesta a incidentes</small></span>
+    </a>
+
+    <nav class="nav">
+        <div class="nav-label">Operación</div>
+        <a href="${ctx}/tablero" class="${active == 'tablero' ? 'on' : ''}"><svg class="ic"><use href="#i-tablero"/></svg>Tablero</a>
+        <a href="${ctx}/evidencias" class="${active == 'evidencias' ? 'on' : ''}"><svg class="ic"><use href="#i-evidencia"/></svg>Evidencias</a>
+        <a href="${ctx}/hallazgos" class="${active == 'hallazgos' ? 'on' : ''}"><svg class="ic"><use href="#i-hallazgo"/></svg>Hallazgos</a>
+        <a href="${ctx}/incidentes" class="${active == 'incidentes' ? 'on' : ''}"><svg class="ic"><use href="#i-incidente"/></svg>Incidentes</a>
+        <a href="${ctx}/agente" class="${active == 'agente' ? 'on' : ''}"><svg class="ic"><use href="#i-agente"/></svg>Agente IA<span class="tag cel">IA</span></a>
+        <a href="${ctx}/ia/parametros" class="${active == 'parametros' ? 'on' : ''}"><svg class="ic"><use href="#i-rayo"/></svg>Parámetros IA</a>
+        <c:if test="${u.admin}">
+            <div class="nav-label">Administración</div>
+            <a href="${ctx}/admin/usuarios" class="${active == 'usuarios' ? 'on' : ''}"><svg class="ic"><use href="#i-usuarios"/></svg>Usuarios</a>
+        </c:if>
+    </nav>
+
+    <div class="rail-foot">
+        <a class="me" href="${ctx}/perfil" title="Mi cuenta">
+            <span class="avatar"><c:out value="${soc:iniciales(empty u.fullName ? u.username : u.fullName)}" /></span>
+            <span>
+                <span class="me-name"><c:out value="${u.username}" /></span><br>
+                <span class="me-role"><c:out value="${soc:rol(u.role)}" /></span>
+            </span>
+        </a>
+        <form method="post" action="${ctx}/logout" class="inline">
+            <input type="hidden" name="_csrf" value="${csrf}">
+            <button class="btn btn-ghost btn-sm logout-btn" type="submit"><svg class="ic"><use href="#i-salir"/></svg>Cerrar sesión</button>
+        </form>
+    </div>
+</aside>
+
+<main class="main">
+<div class="page">
+<c:if test="${not empty flashMessage}">
+    <div class="flash flash-${flashType}" role="status">
+        <svg class="ic"><use href="${flashType == 'error' ? '#i-alerta' : '#i-check'}"/></svg>
+        <span><c:out value="${flashMessage}" /></span>
+        <button type="button" onclick="this.parentElement.remove()" aria-label="Cerrar">×</button>
+    </div>
+</c:if>

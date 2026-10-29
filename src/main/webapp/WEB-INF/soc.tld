@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="https://jakarta.ee/xml/ns/jakartaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-jsptaglibrary_3_0.xsd"
+        version="3.0">
+    <description>Funciones de formato de SOC Forense</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>soc</short-name>
+    <uri>/WEB-INF/soc.tld</uri>
+
+    <function>
+        <name>fecha</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String fecha(java.time.LocalDateTime)</function-signature>
+    </function>
+    <function>
+        <name>fechaSeg</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String fechaSeg(java.time.LocalDateTime)</function-signature>
+    </function>
+    <function>
+        <name>hace</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String hace(java.time.LocalDateTime)</function-signature>
+    </function>
+    <function>
+        <name>severidad</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String severidad(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>estadoEvidencia</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String estadoEvidencia(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>estadoIncidente</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String estadoIncidente(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>rol</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String rol(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>iniciales</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String iniciales(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>cant</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String cant(long, java.lang.String, java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>recortar</name>
+        <function-class>com.soc.forense.util.Fmt</function-class>
+        <function-signature>java.lang.String recortar(java.lang.String, int)</function-signature>
+    </function>
+</taglib>
